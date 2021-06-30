@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Shopping App</title>
+  <script src="main.js" defer></script>
+  <script src="https://kit.fontawesome.com/9eb162ac0d.js"
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css"></link>
+  <link rel="stylesheet" href="reset.css"></link>
+</head>
+<body>
+  <section class="list">
+    <header class="header">
+      <h1 class="title">Shopping List</h1>
+    </header>
+    <div class="cardsBox">
+      <ul class="cards">
+        <li class="card" id="card-1">
+          <p>리스트1</p>
+          <div class="btns">
+            <button class="likeBtn">🤍
+            </button>
+            <button class="deleteBtn">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </li>
+        <li class="card" id="card-2">
+          <p>리스트2</p>
+          <div class="btns">
+            <button class="likeBtn">💖</button>
+            <button class="deleteBtn">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <footer class="footer">
+      <input type="text" name="item" class="footerInput" autocomplete="off" autofocus>
+      <button class="submitBtn">
+        <i class="fas fa-plus"></i>
+      </button>
+    </footer>
+  </section>
+</body>
+</html>

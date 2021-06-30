@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  body {
+    background-color: black;
+    /* overflow: hidden; */
+  }
+
+  .card {
+    width: 200px;
+    height: 100px;
+    background-color: orangered;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .card:hover {
+    cursor: pointer;
+    background-color:yellow;
+  }
+
+  .selected {
+    background-color: green;
+  }
+
+  .special {
+    background-color: white;
+  }
+
+  aside {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+  
+</style>
+<body>
+  <aside>
+    <button id="scroll-by">Scroll by 100px</button>
+    <button id="scroll-to">Scroll to 100px</button>
+    <button id="scroll-into">Scroll into special</button>
+  </aside>
+  <section id="card-list">
+    <div class="card">client x,y</div>
+    <div class="card">page x,y</div>
+    <div class="card">client x,y</div>
+    <div class="card">page x,y</div>
+    <div class="card">client x,y</div>
+    <div class="card special">special</div>
+    <div class="card">client x,y</div>
+    <div class="card">page x,y</div>
+</section>
+
+  <script>
+    const special = document.querySelector('.special');
+    const scrollTo = document.querySelector('#scroll-to')
+    const scrollBy = document.querySelector('#scroll-by')
+    const scrollInto = document.querySelector('#scroll-into')
+    scrollTo.addEventListener('click', (e)=> {
+      window.scrollTo(0, 100)
+    })
+    scrollBy.addEventListener('click', (e)=> {
+      window.scrollBy({left: 0, top:100, behavior: 'smooth'})
+    })
+    scrollInto.addEventListener('click', (e)=> {
+      special.scrollIntoView()
+    })
+
+    let card = document.querySelector('.card')
+    let rect = card.getBoundingClientRect();
+
+    function toggleSelect(div) {
+      div.classList.toggle('selected');
+    }
+
+    function singleSelect(div) {
+      const cardList = document.querySelector('#card-list')
+      let selected = cardList.querySelectorAll('.selected');
+      for(let elem of selected) {
+        elem.classList.remove('selected');
+      }
+      div.classList.add('selected');
+    }
+
+    function update(e) {
+      console.log(`page: ${e.pageX}, ${e.pageY}`)
+      console.log(`client: ${e.clientX}, ${e.clientY}`)
+    }
+    window.addEventListener('click', (e) => {
+      if (e.target.tagName != "DIV") return;
+      update(e)
+      if (e.ctrlKey || e.metaKey) {
+        toggleSelect(e.target);
+      } else {
+        singleSelect(e.target);
+      }
+    })
+    
+  </script>
+</body>
+</html>

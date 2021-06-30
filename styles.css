@@ -1,0 +1,44 @@
+body {
+  background-color: black;
+  color:#f0f0f0;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: xx-large;
+}
+
+li {
+  font-size: large;
+  list-style: none;
+}
+
+.cardlist {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  margin: 10px 10px;
+  border-radius: 4px;
+  background-color: goldenrod;
+  color: black;
+  text-align: center;
+}
+
+.card:hover {
+  background-color: gold;
+}
