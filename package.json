@@ -1,0 +1,10 @@
+{
+  "homepage" : "https://sunaaank.github.io/playground/",
+  "dependencies": {
+    "gh-pages": "^3.2.3"
+  },
+  "script": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  }
+}
